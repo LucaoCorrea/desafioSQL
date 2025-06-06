@@ -1,10 +1,15 @@
-## 🦥 Desafio DataBase SQL
+# 🦥 Desafio DataBase SQL
 
-## Descrição
+## 📋 Descrição
 
-Este repositório contém soluções para quatro desafios básicos de SQL, focados em operações CRUD (Create, Read, Update, Delete) em uma tabela de produtos de uma loja.
+Este repositório contém soluções para desafios de SQL divididos em duas partes:
 
-## Desafios Resolvidos
+1.  Operações CRUD básicas (Create, Read, Update, Delete) em uma tabela de produtos
+    
+2.  Consultas avançadas com JOINs, exclusões condicionais e manipulação de strings
+    
+
+## 🧩 Desafios Resolvidos - Parte 1 (CRUD Básico)
 
 ### 1. Inserção de Dados
 
@@ -22,30 +27,72 @@ Este repositório contém soluções para quatro desafios básicos de SQL, focad
 
 **Objetivo**: Remover todos os produtos cujo preço de venda seja menor que o valor de custo.
 
-## Como Usar
+## 🧠 Desafios Resolvidos - Parte 2 (Consultas Avançadas)
 
-1.  Certifique-se de ter um sistema de gerenciamento de banco de dados instalado (MySQL, PostgreSQL, SQL Server, etc.)
+### 1. Consulta com JOINs
+
+**Objetivo**: Recuperar informações sobre produtos, suas categorias e quantidades em estoque.
+
+### 2. Exclusão Condicional
+
+**Objetivo**: Excluir todos os produtos da categoria 'Roupas'.
+
+### 3. Manipulação de Strings
+
+**Objetivo**: Concatenar nomes de clientes tratando valores nulos.
+
+## 🛠️ Como Usar
+
+1.  **Pré-requisitos**:
     
-2.  Crie uma tabela chamada  `Loja.Produto`  (ou ajuste o nome conforme seu banco de dados) com os campos:
-    
-    -   `nome`  (string)
+    -   Sistema de banco de dados instalado (MySQL, PostgreSQL, SQL Server, etc.)
         
-    -   `valor_custo`  (decimal)
+    -   Acesso a um cliente SQL ou interface de administração
         
-    -   `preco_venda`  (decimal)
+2.  **Preparação**:
+    
+	    CREATE TABLE Produto (
+	        id INT PRIMARY KEY,
+	        nome VARCHAR(100),
+	        valor_custo DECIMAL(10,2),
+	        preco_venda DECIMAL(10,2),
+	        categoria_id INT
+	    );
+	    
+	    CREATE TABLE ProdutoCategoria (
+	        id INT PRIMARY KEY,
+	        nome VARCHAR(50)
+	    );
+	    
+	    CREATE TABLE ProdutoEstoque (
+	        produto_id INT PRIMARY KEY,
+	        quantidade INT
+	    );
+	    
+	    CREATE TABLE Cliente (
+	        id INT PRIMARY KEY,
+	        titulo VARCHAR(10),
+	        primeiro_nome VARCHAR(50),
+	        meio_inicial CHAR(1),
+	        ultimo_nome VARCHAR(50)
+	    );
+    
+3.  **Execução**:
+    
+    -   Copie e execute cada consulta conforme necessário
         
-3.  Execute cada um dos comandos SQL conforme necessário.
+    -   Ajuste os nomes de tabelas/colunas conforme seu esquema
+        
+
+## ⚠️ Importante
+
+-   Sempre faça backup antes de executar operações de DELETE ou UPDATE
     
-
-## Soluções
-
-Os comandos SQL para cada desafio estão disponíveis no arquivo principal. Certifique-se de:
-
--   Verificar os nomes das tabelas e colunas no seu banco de dados
+-   Verifique os nomes das tabelas e colunas em seu ambiente
     
--   Fazer backup antes de executar operações de DELETE ou UPDATE
-    
+-   Os exemplos usam sintaxe padrão SQL - ajuste para seu SGBD específico
 
-## Contribuição
 
-Sinta-se à vontade para contribuir com melhorias ou correções nestes exercícios.
+## 📝 Licença
+
+Este projeto é aberto e pode ser usado livremente para fins educacionais.
